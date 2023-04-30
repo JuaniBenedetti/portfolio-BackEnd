@@ -16,4 +16,11 @@ public class SoftSkill {
 
     // Prefiero que sea entero
     private int porcentaje;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "idUsuario",
+            foreignKey = @ForeignKey(name = "FK_softskills_usuarios")
+    )
+    private Usuario usuario;
 }

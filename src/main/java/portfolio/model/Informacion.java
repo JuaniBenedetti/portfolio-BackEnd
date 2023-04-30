@@ -22,4 +22,11 @@ public class Informacion {
 
     @Lob
     private byte[] fotoPerfil;
+
+    @OneToOne
+    @JoinColumn(
+            name = "idUsuario",
+            foreignKey = @ForeignKey(name = "FK_informacion_usuarios")
+    )
+    private Usuario usuario;
 }

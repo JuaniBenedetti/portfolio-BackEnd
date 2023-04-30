@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Data
 @Entity
@@ -29,4 +30,19 @@ public class Usuario {
     @Column(nullable = false, unique = true)
     @Email(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")
     private String email;
+
+    @OneToOne(mappedBy = "usuario")
+    private Informacion informacion;
+
+    @OneToMany(mappedBy = "usuario")
+    private Set<Educacion> educacion;
+
+    @OneToMany(mappedBy = "usuario")
+    private Set<Experiencia> experiencia;
+
+    @OneToMany(mappedBy = "usuario")
+    private Set<Proyecto> proyecto;
+
+    @OneToMany(mappedBy = "usuario")
+    private Set<SoftSkill> softSkill;
 }

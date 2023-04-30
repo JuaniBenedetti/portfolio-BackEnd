@@ -21,4 +21,11 @@ public class Proyecto {
     private String descripcion;
 
     private String evidenciaURL;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "idUsuario",
+            foreignKey = @ForeignKey(name = "FK_proyectos_usuarios")
+    )
+    private Usuario usuario;
 }

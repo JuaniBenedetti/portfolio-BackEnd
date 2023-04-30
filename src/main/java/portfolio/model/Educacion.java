@@ -27,4 +27,11 @@ public class Educacion {
 
     @Lob
     private byte[] logoInstitucion;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "idUsuario",
+            foreignKey = @ForeignKey(name = "FK_educacion_usuarios")
+    )
+    private Usuario usuario;
 }

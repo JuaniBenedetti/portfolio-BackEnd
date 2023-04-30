@@ -24,4 +24,11 @@ public class Experiencia {
 
     @Lob
     private byte[] logoEmpresa;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "idUsuario",
+            foreignKey = @ForeignKey(name = "FK_experiencias_usuarios")
+    )
+    private Usuario usuario;
 }
