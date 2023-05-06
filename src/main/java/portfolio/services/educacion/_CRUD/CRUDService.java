@@ -1,4 +1,4 @@
-package portfolio.services._CRUD;
+package portfolio.services.educacion._CRUD;
 
 import java.util.List;
 

@@ -1,14 +1,15 @@
-package portfolio.services._CRUD;
+package portfolio.services.educacion._CRUD;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import portfolio.dao._CRUD.CRUDDao;
+import portfolio.model.interfaces.User;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public abstract class CRUDServiceImpl<T> implements CRUDService<T> {
+public abstract class CRUDServiceImpl<T extends User> implements CRUDService<T> {
 
     private final CRUDDao<T> crudDao;
 

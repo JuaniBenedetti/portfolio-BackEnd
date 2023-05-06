@@ -8,7 +8,7 @@ import portfolio.web._CRUD.CRUDControllerImpl;
 
 @RestController
 @RequestMapping("/proyecto")
-public class ProyectoControllerImpl extends CRUDControllerImpl<Proyecto> implements ProyectoController {
+public class ProyectoControllerImpl extends CRUDControllerImpl<Proyecto> implements ProyectoController  {
 
     public ProyectoControllerImpl(ProyectoService proyectoService) { super(proyectoService); }
 }

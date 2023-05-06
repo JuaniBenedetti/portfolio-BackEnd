@@ -1,12 +1,13 @@
 package portfolio.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-import java.util.Set;
+import java.util.List;
 
 @Data
 @Entity
@@ -22,8 +23,8 @@ public class Usuario {
     @Column(nullable = false, unique = true)
     private String username;
 
-    @NotNull
     @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @NotNull
@@ -31,18 +32,18 @@ public class Usuario {
     @Email(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")
     private String email;
 
-    @OneToOne(mappedBy = "usuario")
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Informacion informacion;
 
-    @OneToMany(mappedBy = "usuario")
-    private Set<Educacion> educacion;
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Educacion> educacion;
 
-    @OneToMany(mappedBy = "usuario")
-    private Set<Experiencia> experiencia;
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Experiencia> experiencias;
 
-    @OneToMany(mappedBy = "usuario")
-    private Set<Proyecto> proyecto;
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Proyecto> proyectos;
 
-    @OneToMany(mappedBy = "usuario")
-    private Set<SoftSkill> softSkill;
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Skill> skills;
 }
